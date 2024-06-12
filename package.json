@@ -1,0 +1,15 @@
+{
+  "name": "chat-itp-database",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "import-projects": "node scripts/importProjects.mjs"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.4.1"
+  }
+}
