@@ -4,12 +4,16 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "import-projects": "node scripts/importProjects.mjs"
+    "import-projects": "node scripts/importProjects.mjs",
+    "create-text-only-projects": "node scripts/createTextOnlyProjects.mjs",
+    "upload-projects-vector-db": "node scripts/uploadToVectorDB.mjs"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@zilliz/milvus2-sdk-node": "^2.4.3",
     "dotenv": "^16.4.5",
-    "mongoose": "^8.4.1"
+    "mongoose": "^8.4.1",
+    "replicate": "^0.30.2"
   }
 }
