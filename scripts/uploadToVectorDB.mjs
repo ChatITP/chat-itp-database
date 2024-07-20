@@ -40,6 +40,7 @@ async function main() {
 
   const projects = await TextOnlyProjectModel.find();
   const data = [];
+
   let projectCount = 0;
   for (const project of projects) {
     const embedding = await generateEmbeddingVectors(project.text);
@@ -50,16 +51,16 @@ async function main() {
     });
     projectCount++;
     console.log("embedded:" + projectCount);
-  }
-
-  try {
-    const res = await client.insert({
-      collection_name: "projects",
-      data,
-    });
-    console.log("Milvus insert successful");
-  } catch (e) {
-    console.error("Milvus insert failed:", e);
+    try {
+      const res = await client.insert({
+        collection_name: "projects",
+        data,
+      });
+      console.log("Milvus insert successful");
+    } catch (e) {
+      console.error("Milvus insert failed:", e);
+    }
+    data.pop();
   }
 }
 main();
