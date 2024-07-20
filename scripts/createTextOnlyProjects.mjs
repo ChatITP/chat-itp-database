@@ -86,7 +86,8 @@ ${keywords}
 }
 
 async function main() {
-  for (let i = 5500; i < 5600; i++) {
+  let count = await ProjectModel.countDocuments();
+  for (let i = 0; i < count; i++) {
     const project = await ProjectModel.findOne({}, null, { skip: i });
     const projectText = generateProjectText(project);
     const textOnlyProject = new TextOnlyProjectModel({
@@ -94,7 +95,7 @@ async function main() {
       originalProjectId: project._id,
     });
     await textOnlyProject.save();
-    console.log("Inserting project" + (i - 5499));
+    console.log("Inserting project" + (i + 1));
   }
 }
 
